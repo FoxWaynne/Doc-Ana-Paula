@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentação do Bot de IA para Discord</title>
+    <title>Documentação Ana Paula AIbot</title>
     <style>
         body {
             margin: 0;
@@ -11,73 +12,46 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Estilos da barra lateral */
         .sidebar {
-            background-color: #9c27b0;
+            background-color: #8e44ad;
             color: #fff;
+            padding: 20px;
+            width: 250px;
+            height: 100vh;
             position: fixed;
             top: 0;
             left: 0;
-            width: 250px;
-            height: 100vh;
-            padding: 20px;
         }
 
-        .sidebar a {
-            color: #fff;
-            display: block;
-            margin-bottom: 10px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .sidebar a:hover {
-            color: #e1bee7;
-        }
-
-        /* Estilos do conteúdo */
         .content {
-            margin-left: 250px;
+            margin-left: 270px;
             padding: 20px;
         }
 
         h1 {
-            color: #9c27b0;
+            color: #8e44ad;
         }
 
         h2 {
-            color: #673ab7;
+            color: #8e44ad;
         }
 
         p {
-            line-height: 1.5;
-        }
-
-        .code {
-            background-color: #f5f5f5;
-            padding: 10px;
-            border-radius: 4px;
-            font-family: "Courier New", monospace;
-        }
-
-        .code-title {
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
-        .code-block {
-            margin: 20px 0;
+            margin-top: 10px;
         }
     </style>
 </head>
+
 <body>
     <div class="sidebar">
-        <h1>Documentação do Bot de IA para Discord</h1>
-        <a href="#descricao">Descrição</a>
-        <a href="#funcionamento">Funcionamento</a>
-        <a href="#recursos-comandos">Recursos e Comandos</a>
-        <a href="#integracoes-dependencias">Integrações e Dependências</a>
-        <a href="#exemplo-uso">Exemplo de Uso</a>
+        <h1>Bot de IA para Discord</h1>
+        <ul>
+            <li><a href="#descricao">Descrição</a></li>
+            <li><a href="#funcionamento">Funcionamento</a></li>
+            <li><a href="#recursos-comandos">Recursos e Comandos</a></li>
+            <li><a href="#integracoes-dependencias">Integrações e Dependências</a></li>
+            <li><a href="#exemplo-uso">Exemplo de Uso</a></li>
+        </ul>
     </div>
 
     <div class="content">
@@ -85,52 +59,50 @@
         <p>O Bot de IA para Discord é uma aplicação que utiliza a implementação de uma rede neural para gerar respostas, scripts e auxiliar em dúvidas relacionadas a qualquer assunto solicitado. O objetivo principal do bot é fornecer interações inteligentes e úteis aos usuários do Discord, utilizando tecnologia avançada de processamento de linguagem natural.</p>
 
         <h1 id="funcionamento">Funcionamento</h1>
-        <p>Para usar o Bot de IA para Discord, siga as etapas abaixo:</p>
-
-        <h2 id="etapa1">Etapa 1: Instalação e Configuração</h2>
-        <p>1. Faça o download e instale o bot em seu servidor do Discord.</p>
-        <p>2. Configure as credenciais do Discord e do OpenAI no código-fonte do bot.</p>
-
-        <h2 id="etapa2">Etapa 2: Interação com o Bot</h2>
-        <p>1. Use o comando `/enviar` para enviar uma mensagem para os canais de avisos configurados.</p>
-        <p>2. Use o comando `!updates` para enviar uma mensagem no canal de atualizações.</p>
-        <p>3. Use o comando `!avisar` para enviar uma mensagem no canal de notificações.</p>
-        <p>4. Use o comando `/chat_fox` para enviar mensagens no chat geral.</p>
-        <p>5. Use o comando `.ap` para interagir com a IA do bot e obter respostas, scripts ou auxílio em qualquer assunto solicitado.</p>
+        <p>O Bot de IA para Discord está integrado à plataforma Discord e opera como um cliente do Discord. Ele se conecta aos servidores do Discord e recebe eventos, como mensagens de texto enviadas pelos usuários.</p>
+        <p>O bot utiliza a biblioteca Discord.py para interagir com a API do Discord e receber eventos em tempo real.</p>
+        <p>Quando um usuário envia uma mensagem de texto, o bot verifica se é um comando ou uma solicitação de conversação com a IA.</p>
+        <p>Se for um comando, o bot executa a ação correspondente, como enviar mensagens para canais específicos, fornecer informações de ajuda ou realizar ações administrativas.</p>
+        <p>Se for uma solicitação de conversação com a IA, o bot utiliza a implementação de uma rede neural fornecida pela biblioteca OpenAI para gerar uma resposta inteligente.</p>
+        <p>O bot extrai o contexto da conversa anterior do usuário, se houver, e combina com a mensagem atual para formar um prompt de entrada para a rede neural.</p>
+        <p>O prompt é dividido em partes menores, se necessário, para respeitar o limite de tokens da API do OpenAI.</p>
+        <p>Para cada parte do prompt, o bot envia uma solicitação para a API do OpenAI, que retorna uma resposta gerada pela rede neural.</p>
+        <p>O bot concatena as respostas parciais para formar a resposta completa.</p>
+        <p>Se a resposta for muito longa para ser exibida diretamente no Discord, o bot salva a resposta em um arquivo de texto e envia o arquivo como anexo no canal de conversa.</p>
+        <p>O bot armazena o contexto da conversa para uso futuro, permitindo uma continuidade mais suave na interação com a IA.</p>
 
         <h1 id="recursos-comandos">Recursos e Comandos</h1>
-        <p>O Bot de IA para Discord oferece os seguintes recursos e comandos:</p>
-
-        <h2>Comandos de Avisos e Atualizações</h2>
-        <p>O bot permite enviar mensagens de avisos, atualizações e notificações em canais específicos usando os comandos `/enviar`, `!updates` e `!avisar`, respectivamente.</p>
-
-        <h2>Comando de Chat Geral</h2>
-        <p>O comando `/chat_fox` permite enviar mensagens no canal de bate-papo geral configurado.</p>
-
-        <h2>Comando de Interação com a IA</h2>
-        <p>O comando `.ap` é usado para interagir com a IA do bot. Basta digitar o comando seguido da pergunta ou solicitação desejada. A IA utilizará a implementação de rede neural para gerar uma resposta adequada.</p>
+        <ul>
+            <li>/enviar &lt;mensagem&gt;: Envia a mensagem fornecida para canais específicos com uma menção a @everyone.</li>
+            <li>/admin_help: Fornece informações sobre os comandos disponíveis para administradores.</li>
+            <li>!updates &lt;mensagem&gt;: Envia a mensagem fornecida para um canal específico de atualizações com uma menção a @everyone.</li>
+            <li>!avisar &lt;mensagem&gt;: Envia a mensagem fornecida para um canal específico de notificações com uma menção a @everyone.</li>
+            <li>!chat_fox &lt;mensagem&gt;: Envia a mensagem fornecida para o canal geral de bate-papo.</li>
+            <li>.ap &lt;pergunta&gt;: Solicita uma resposta da IA para a pergunta fornecida. A IA utiliza uma rede neural para gerar uma resposta inteligente.</li>
+        </ul>
 
         <h1 id="integracoes-dependencias">Integrações e Dependências</h1>
-        <p>O Bot de IA para Discord depende das seguintes bibliotecas e APIs:</p>
-
-        <h2>Biblioteca Discord.py</h2>
-        <p>A biblioteca Discord.py é usada para a interação com a API do Discord, permitindo o envio e recebimento de mensagens.</p>
-
-        <h2>API OpenAI</h2>
-        <p>A API OpenAI é utilizada para a implementação da rede neural, permitindo a geração de respostas inteligentes.</p>
+        <p>A aplicação utiliza a biblioteca Discord.py para interagir com a API do Discord e receber eventos em tempo real.</p>
+        <p>A aplicação utiliza a biblioteca OpenAI para implementar a funcionalidade de rede neural e gerar respostas inteligentes.</p>
+        <p>É necessário fornecer um token de autenticação do Discord (discord_token) e um token de autenticação do OpenAI (openai_token).</p>
+        <p>É necessário especificar o motor de rede neural a ser usado (openai_engine), por exemplo, "text-davinci-003".</p>
+        <p>Observações:</p>
+        <ul>
+            <li>Certifique-se de substituir os valores das variáveis discord_token, openai_token, openai_engine pelos seus próprios tokens e configurações.</li>
+            <li>O bot armazena o contexto da conversa em memória durante a execução. Se a aplicação for reiniciada, o contexto será perdido.</li>
+            <li>É recomendado configurar os canais de avisos, atualizações e bate-papo geral, fornecendo os IDs corretos dos canais do Discord.</li>
+            <li>A aplicação precisa de permissões adequadas no servidor do Discord para executar certas ações, como enviar mensagens em canais específicos e mencionar @everyone.</li>
+            <li>O bot pode ser estendido e personalizado de acordo com as necessidades do usuário, adicionando novos comandos, funcionalidades e integrações.</li>
+        </ul>
 
         <h1 id="exemplo-uso">Exemplo de Uso</h1>
-        <p>Aqui está um exemplo de como utilizar o Bot de IA para Discord:</p>
-
-        <h2>Passo 1: Comando de Interação com a IA</h2>
-        <p>Um usuário envia a mensagem `.ap Qual é o significado da vida?` no Discord.</p>
+        <p>Um usuário envia a mensagem /enviar Olá, pessoal! Há uma atualização importante que quero compartilhar com vocês.</p>
+        <p>O bot envia a mensagem para os canais específicos configurados com uma menção a @everyone.</p>
+        <p>Um usuário envia a mensagem .ap Qual é o significado da vida?</p>
         <p>O bot utiliza a IA baseada em rede neural para gerar uma resposta inteligente à pergunta do usuário.</p>
-
-        <h2>Passo 2: Resposta da IA</h2>
-        <p>O bot responde diretamente no canal de conversa com a resposta gerada pela IA.</p>
-
-        <h2>Passo 3: Armazenamento de Contexto</h2>
-        <p>O bot armazena o contexto da conversa em memória, permitindo interações contínuas e melhorando as respostas futuras.</p>
+        <p>Se a resposta for curta o suficiente, o bot responde diretamente no canal de conversa.</p>
+        <p>Se a resposta for muito longa, o bot salva a resposta em um arquivo de texto e envia o arquivo como anexo no canal de conversa.</p>
     </div>
 </body>
+
 </html>
